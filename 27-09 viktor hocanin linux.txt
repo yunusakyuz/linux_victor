@@ -1,0 +1,192 @@
+1  ls
+    2  vim exer2.sh
+    3  ls
+    4  chmod +x func1.sh
+    5  ls
+    6  ./func1.sh
+    7  date
+    8  clear
+    9  ./func1.sh
+   10  chmod +x arg.sh
+   11  ./arg.sh
+   12  chmod +x exe3.sh
+   13  ./exe3.sh
+   14  ls
+   15  chmod +x loop2
+   16  ls
+   17  ./loop2
+   18  for f in $( ls /etc/ ); do echo $f; done
+   19  for f in $( ls /etc/ ); do; echo $f; done
+   20  for f in $( ls /etc/ ) do echo $f; done
+   21  for f in $( ls /etc/ ); do echo $f; pwd done
+   22  for f in $( ls /etc/ ); do echo $f; pwd; done
+   23  ./loop2
+   24  ./pyt.sh
+   25  chmod +x pyt.sh
+   26  pyt.sh
+   27  ./pyt.sh
+   28  sudo yum install python3 -y
+   29  python3 --version
+   30  ./pyt.sh
+   31  chmod +x pyt2.sh
+   32  ./pyt2.sh
+   33  ls
+   34  cd bash_game_snake/
+   35  ls
+   36  ./simple_snake.sh
+   37  exit
+   38  clear
+   39  vim forloop.sh
+   40  chmod +x forloop.sh
+   41  ./forloop.sh
+   42  vim forloop.sh
+   43  ./forloop.sh
+   44  vim forloop.sh
+   45  ./forloop.sh
+   46  vim forloop.sh
+   47  ./forloop.sh
+   48  vim forloop.sh
+   49  ./forloop.sh
+   50  vim forloop.sh
+   51  ./forloop.sh
+   52  vim forloop.sh
+   53  ./forloop.sh
+   54  vim forloop.sh
+   55  ./forloop.sh
+   56  vim forloop.sh
+   57  vim exer1.sh
+   58  chmod +x exer1.sh
+   59  ./exer1.sh
+   60  ls
+   61  vim exer
+   62  ls
+   63  vim exer1.sh
+   64  vim exer2.sh
+   65  chmod +x exer2.sh
+   66  ./exer2.sh
+   67  vim func1.sh
+   68  vim arg.sh
+   69  vim exe3.sh
+   70  vim loop2
+   71  vim pyt.sh
+   72  vim pyt2.sh
+   73  git --version
+   74  sudo yum install git[A
+   75  git clone https://github.com/VicRef/bash_game_snake.git
+   76  ls
+   77  cd bash_game_snake/
+   78  ls
+   79  vim simple_snake.sh
+   80  exit
+   81  whoami
+   82  pwd
+   83  ls
+   84  sudo su
+   85  cd /etc
+   86  ls
+   87  cat passwd
+   88  cd
+   89  ls
+   90  cd bash_game_snake/
+   91  ls
+   92  ./simple_snake.sh
+   93  which shell
+   94  pwd
+   95  ./simple_snake.sh
+   96  exit
+   97  ls
+   98  exit
+   99  pwd
+  100  sudo su
+  101  su dev_user
+  102  sudo su
+  103  ls
+  104  vim bash1.sh
+  105  chmod +x bash1.sh
+  106  echo $PATH
+  107  export PATH=$PATH:/home/ec2-user
+  108  echo $PATH
+  109  bash1.sh
+  110  vim bash1.sh
+  111  bash1.sh
+  112  vim bash1.sh
+  113  bash1.sh
+  114  vim bash1.sh
+  115  bash1.sh 11 22
+  116  vim bash1.sh
+  117  bash1.sh 11 22
+  118  ls
+  119  vim myfilter.txt
+  120  cat > passwords.csv
+  121  ls
+  122  cat passwords.csv
+  123  chmod +x myfilter.txt
+  124  ls
+  125  myfilter.txt hr
+  126  myfilter.txt victor
+  127  myfilter.txt sales
+  128  history
+GitHubGitHub
+VicRef/bash_game_snake
+Contribute to VicRef/bash_game_snake development by creating an account on GitHub.
+:tebrikler:
+2
+
+7:17
+Exercise 3:
+#!/bin/bash
+username=$(whoami)
+if [ $1 ]
+then
+        username=$1
+fi
+description=$(cat /etc/passwd | grep $username | cut -d":" -f5)
+if [ "$description" != "" ]
+then
+echo "Description of $username is $description"
+else
+echo "No description for user $username"
+fi
+sudo useradd hr -c “Human Resources Section”
+sudo useradd tech -c “Technical Stuff”
+sudo useradd aws
+**************
+#!/bin/bash
+username=$(whoami)
+if [ $1 ]
+then
+        username=$1
+fi
+description=$(cat /etc/passwd | grep $username | cut -d":" -f5)
+if [ "$description" != "" ]
+then
+echo "Description of $username is $description"
+else
+echo "No description for user $username"
+fi
+get_password $username    #bu bizim önceki alıştırmada oluşturduğumuz script. burada doğrudan çağırıyoruz.
+7:17
+exercise 4:
+if [ $1 ]
+then
+        cd $1
+fi
+number=1
+for FILE in *.csv
+do
+        mv $FILE $number-$FILE
+        let number++
+done
+mkdir new
+touch test.csv sec.csv third.csv test.txt
+7:18
+exercise 5:
+function file_count()
+{
+local Directory=$1
+COUNT_FILE=$(ls $Directory|wc -l)
+echo "$Directory - $COUNT_FILE"
+}
+file_count /etc
+file_count ~
+file_count /usr/bin
